@@ -5,6 +5,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# If we have an existing TMUX Session, Connect to it. Else create one
 if ! ps aux | grep -v grep | grep tmux &>/dev/null ; then
   pkill "ssh-agent"
   rm -f ~/.ssh-agent
@@ -30,7 +31,7 @@ BLUE='\[\033[00;32m\]'
 PINK='\[\033[01;35m\]'
 GREEN='\[\033[00;36m\]'
 RED='\[\033[01;31m\]'
-PROMPT='[['$PINK'\D{%T}'$NONE'][`if [ $? = 0 ]; then echo "'$GREEN'●'$NONE'"; else echo "'$RED'●'$NONE'"; fi`]'$CYAN'\u'$NONE'@'$BLUE'\h'$NONE':'$GREEN'\w'$NONE']\n$(parse_git_branch)\$>'
+PROMPT='[['$PINK'\D{%T}'$NONE'][`if [ $? = 0 ]; then echo "'$GREEN'●'$NONE'"; else echo "'$RED'●'$NONE'"; fi`]'$CYAN'\u'$NONE'@'$BLUE'\h'$NONE':'$GREEN'\w'$NONE'] $(parse_git_branch)\n\$>'
 PS1=$PROMPT
 
 #User specific aliases and functions
@@ -40,7 +41,5 @@ alias crontab="sudo /usr/bin/vim -Z /etc/crontab"
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
-export VAULT_ADDR=https://vault.emrlab.ca:8200/
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
