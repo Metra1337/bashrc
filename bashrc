@@ -31,7 +31,7 @@ BLUE='\[\033[00;32m\]'
 PINK='\[\033[01;35m\]'
 GREEN='\[\033[00;36m\]'
 RED='\[\033[01;31m\]'
-PROMPT='[['$PINK'\D{%T}'$NONE'][`if [ $? = 0 ]; then echo "'$GREEN'●'$NONE'"; else echo "'$RED'●'$NONE'"; fi`]'$CYAN'\u'$NONE'@'$BLUE'\h'$NONE':'$GREEN'\w'$NONE'] $(parse_git_branch)\n\$>'
+PROMPT='[['$PINK'\D{%T}'$NONE'][`if [ $? = 0 ]; then echo "'$GREEN'●'$NONE'"; else echo "'$RED'●'$NONE'"; fi`]'$CYAN'\u'$NONE'@'$BLUE'\h'$NONE':'$GREEN'\w'$NONE']'$CYAN'$(parse_git_branch)'$NONE'\n\$>'
 PS1=$PROMPT
 
 #User specific aliases and functions
