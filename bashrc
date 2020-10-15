@@ -37,7 +37,7 @@ PS1=$PROMPT
 #User specific aliases and functions
 alias hosts="sudo /usr/bin/vim -Z /etc/hosts"
 alias crontab="sudo /usr/bin/vim -Z /etc/crontab"
-
+alias packer="/usr/bin/packer.io"
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
